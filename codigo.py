@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import pygetwindow as gw
 
 # pyautogui.click -> clicar em algum lugar
 # pyautogui.press -> apertar 1 tecla
@@ -17,12 +18,25 @@ pyautogui.moveTo(x = 900, y = 580)
 pyautogui.click(x = 900, y = 580)
 pyautogui.click(button = 'left')
 
-time.sleep(3)
+time.sleep(1)
+
+pyautogui.moveTo(x = 350, y = 100)
+pyautogui.click(x = 350, y = 72)
+#time.sleep(1)
 
 # digitar o site
-pyautogui.hotkey("ctrl", "l")
-pyautogui.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
+pyautogui.write("https://app.swfast.com.br")
 pyautogui.press("Enter")
+
+pyautogui.write("joao@grupotsm.com.br")
+pyautogui.press("Tab")
+pyautogui.write("Josejoaojj_17")
+pyautogui.press("Enter")
+time.sleep(3)
+pyautogui.moveTo(x = 273, y=383)
+pyautogui.click(x=273, y=383)
+pyautogui.moveTo(x=273, y=510)
+pyautogui.click(button="left")
 
 # Passo 2: Fazer login
 # Passo 3: Importar a base de dados

@@ -1,6 +1,8 @@
 import pyautogui
 import time
 import pygetwindow as gw
+from dotenv import load_dotenv
+import os
 
 # pyautogui.click -> clicar em algum lugar
 # pyautogui.press -> apertar 1 tecla
@@ -17,11 +19,11 @@ def coordenadas() :
         "pesquisa": [500, 286],  #barra de pesquisa do relatório
         "faturamentos": [500, 338],  #seleciona aba faturamentos
         "tipo_pag": [500, 358],   #seleciona opção faturamento por tipo de pagamento
-        "excel": [1040, 648],
-        "data": [1069, 254],
-        "gerar": [940, 728],
-        "loc_loja": [1467, 280],
-        "checkbox": [1380, 340]
+        "excel": [1040, 648],  #escolhe o formato do relatório
+        "data": [1069, 254],    #seleciona a data do dia anterior
+        "gerar": [940, 728],    #baixa o relatório da loja
+        "loc_loja": [1467, 280],    #pesquisa a loja
+        "checkbox": [1380, 340]    #marca a loja escolhida para download
 }
 
 coordenada = coordenadas()
@@ -59,10 +61,20 @@ time.sleep(1)
 # digitar o site
 pyautogui.write("https://app.swfast.com.br")
 pyautogui.press("Enter")
+time.sleep(2)
 
-pyautogui.write("joao@grupotsm.com.br")
+#carrega a leitura de dados sensíveis 
+load_dotenv()
+
+usuario = os.getenv('DB_USER')
+senha = os.getenv('DB_PASSWORD')
+host = os.getenv('DB_HOST')
+banco = os.getenv('DB_NAME')
+
+#executando o login
+pyautogui.write(usuario)
 pyautogui.press("Tab")
-pyautogui.write("Josejoaojj_17")
+pyautogui.write(senha)
 pyautogui.press("Enter")
 time.sleep(3)
 

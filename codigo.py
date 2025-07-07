@@ -108,7 +108,7 @@ def abrir_relatorio_gaia():
     pressionar("Enter")
     clicar("faturamentos")
     clicar("tipo_pag")
-    selecao_tipo_data()
+    clicar("excel")
 
 def apagar_loja():
     clicar("loc_loja")
